@@ -9,7 +9,7 @@ from to_do_list.views import (
     TagCreateView,
     TagDeleteView,
     TagUpdateView,
-    toggle_complete_undo_task
+    toggle_complete_undo_task,
 )
 
 urlpatterns = [
@@ -22,7 +22,6 @@ urlpatterns = [
     path("tags/create/", TagCreateView.as_view(), name="tag-create"),
     path("tags/<int:pk>/delete/", TagDeleteView.as_view(), name="tag-delete"),
     path("tags/<int:pk>/update/", TagUpdateView.as_view(), name="tag-update"),
-
 ]
 
 app_name = "todo_list"
