@@ -1,1 +1,1 @@
-web: gunicorn todo-list-2022-app.wsgi --log-file -
+web: gunicorn to-do-list-Project.wsgi --log-file -

@@ -74,6 +74,7 @@ TEMPLATES = [
         },
     },
 ]
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 WSGI_APPLICATION = "to-do-list-Project.wsgi.application"
 
@@ -89,7 +90,7 @@ DATABASES = {
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 
-DATABASES['default'].update(db_from_env)
+DATABASES["default"].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
