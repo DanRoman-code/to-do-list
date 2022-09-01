@@ -1,0 +1,14 @@
+.deadline {
+    display: contents;
+    color: brown;
+}
+.tags{
+    color: darkgrey;
+    font-weight: bold;
+}
+.created{
+    font-weight: 500;
+}
+nav li.created:hover{
+    font-size: 1.2em;
+}

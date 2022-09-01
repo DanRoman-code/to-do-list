@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="pt-4 justify-content-between pb-4">TODO list
+  <a href="{% url 'todo_list:task-create' %}" class="btn btn-primary float-right">Add task</a>
+</h1>
+
+{% if task_list %}
+<ul class="list-group ">
+  {% for task in task_list %}
+  <li class="list-group pb-2"><h4>{{ task.content }} {% if task.status %}
+    <span class="text-success">Done</span>
+    <a href="{% url 'todo_list:task-toggle' pk=task.id %}" class="btn btn-secondary float-right">Undo</a></h4></li>
+  {% else %}
+  <spann class="text-danger">Not done</spann>
+  <a href="{% url 'todo_list:task-toggle' pk=task.id %}" class="btn btn-success float-right">Complete</a></strong></li>
+  {% endif %}
+  <li class="list-group created pb-2">Created: {{ task.datetime }} {% if task.deadline %} <span class="deadline">Deadline:
+          {{ task.deadline }} </span>{% endif %}
+  </li>
+  <li class="list-group pb-2"><span class="tags">Tags:{% for tag in task.tags.all %}
+    {{ tag.name }}
+    {% endfor %}</span>
+  </li>
+  <li class="list-group d-sm-inline-block pb-2">
+    <a href="{% url 'todo_list:task-update' pk=task.id %}">Update</a>
+    <a href="{% url 'todo_list:task-delete' pk=task.id %}">Delete</a>
+    <hr>
+
+  </li>
+
+  {% endfor %}
+</ul>
+
+{% else %}
+<br>
+<h5>TODO list is empty :(</h5>
+{% endif %}
+{% endblock %}
